@@ -21,6 +21,7 @@ jobs:
       - name: Build Mod with Gradle
         run: |
           unzip -q dutiner-src.zip -d temp_src
+          sed -i 's/\bInput\b/ClientInput/g' temp_src/dutiner/src/main/java/dev/dutiner/mixin/InputMixin.java
           cd temp_src/dutiner
           if [ -f "./gradlew" ]; then
             chmod +x gradlew
